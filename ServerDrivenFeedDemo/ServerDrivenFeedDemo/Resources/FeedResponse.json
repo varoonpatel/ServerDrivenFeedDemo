@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "post_001",
+      "type": "text_post",
+      "author": {
+        "id": "user_001",
+        "name": "John Smith",
+        "avatarURL": "https://example.com/avatar.jpg"
+      },
+      "content": {
+        "text": "Alberta, here we come! ⛰️☀️ Summer adventures await! ✨"
+      },
+      "createdAt": "2026-08-21T18:00:00Z"
+    },
+    {
+      "id": "post_002",
+      "type": "photo_post",
+      "author": {
+        "id": "user_002",
+        "name": "Sarah",
+        "avatarURL": "https://example.com/sarah.jpg"
+      },
+      "content": {
+        "image": {
+          "url": "https://example.com/photo.jpg",
+          "width": 1200,
+          "height": 800
+        }
+      },
+      "createdAt": "2026-08-21T17:30:00Z"
+    },
+    {
+      "id": "post_003",
+      "type": "video_post",
+      "author": {
+        "id": "user_003",
+        "name": "Mike",
+        "avatarURL": "https://example.com/mike.jpg"
+      },
+      "content": {
+        "video": {
+          "thumbnailURL": "https://example.com/thumb.jpg",
+          "streamURL": "https://example.com/video.mp4"
+        }
+      },
+      "createdAt": "2026-08-21T17:00:00Z"
+    },
+    {
+      "id": "post_004",
+      "type": "multi_photo_post",
+      "author": {
+        "id": "user_004",
+        "name": "James",
+        "avatarURL": "https://example.com/mike.jpg"
+      },
+      "content": {
+        "images": [
+            {
+              "url": "https://example.com/photo.jpg",
+              "width": 400,
+              "height": 280
+            },
+            {
+              "url": "https://example.com/photo2.jpg",
+              "width": 280,
+              "height": 280
+            },
+            {
+              "url": "https://example.com/phot3.jpg",
+              "width": 280,
+              "height": 280
+            }
+        ]
+      },
+      "createdAt": "2026-08-21T17:00:00Z"
+    }
+  ],
+  "pagination": {
+    "nextCursor": "cursor_123",
+    "hasMore": true
+  }
+}
+
