@@ -1,48 +1,67 @@
-//
-//  FeedItemMapper.swift
-//  ServerDrivenFeedDemo
-//
-//  Created by Varun on 2026-08-21.
-//
+import Foundation
 
 enum FeedItemMapper {
     static func map(from feedItem: FeedItemType) -> FeedItem? {
-        switch feedItem {
-        case .text(let post):
-            return .textPost(TextPost(
-                id: post.id,
-                author: post.author.toDomain(),
-                content: post.content.text,
-                createdAt: post.createdAt
-            ))
-            
-        case .photo(let post):
+        guard case let .item(dto) = feedItem else { return nil }
+        let images = (dto.media ?? []).filter { $0.type == "image" }.map { $0.toImageDomain() }
+        let videos = (dto.media ?? []).filter { $0.type == "video" }.map { $0.toVideoDomain() }
+        let engagement = dto.engagement.toDomain()
+
+        switch dto.type {
+        case .text:
+            return .textPost(
+                TextPost(
+                    id: dto.id,
+                    author: dto.author.toDomain(),
+                    content: dto.content.text ?? "",
+                    createdAt: dto.createdAt,
+                    engagement: engagement
+                )
+            )
+        case .image:
+            guard let image = images.first else { return nil }
             return .imagePost(
                 ImagePost(
-                    id: post.id,
-                    author: post.author.toDomain(),
-                    imageData: post.content.image.toDomain(),
-                    createdAt: post.createdAt
+                    id: dto.id,
+                    author: dto.author.toDomain(),
+                    imageData: image,
+                    createdAt: dto.createdAt,
+                    engagement: engagement
                 )
             )
-            
-        case .video(let post):
-            return .videoPost(
-                VideoPost(
-                    id: post.id,
-                    author: post.author.toDomain(),
-                    videoData: post.content.video.toDomain(),
-                    createdAt: post.createdAt
-                )
-            )
-            
-        case .multiPhoto(let post):
+        case .multipleImages:
             return .multiImagePost(
                 MultiImagePost(
-                    id: post.id,
-                    author: post.author.toDomain(),
-                    images: post.content.images.map { $0.toDomain() },
-                    createdAt: post.createdAt
+                    id: dto.id,
+                    author: dto.author.toDomain(),
+                    images: images,
+                    createdAt: dto.createdAt,
+                    engagement: engagement
+                )
+            )
+        case .video:
+            guard let video = videos.first else { return nil }
+            return .videoPost(
+                VideoPost(
+                    id: dto.id,
+                    author: dto.author.toDomain(),
+                    videoData: video,
+                    createdAt: dto.createdAt,
+                    engagement: engagement
+                )
+            )
+        case .news:
+            guard let headline = dto.content.headline, let summary = dto.content.summary, let url = dto.content.url else { return nil }
+            return .newsPost(
+                NewsPost(
+                    id: dto.id,
+                    author: dto.author.toDomain(),
+                    headline: headline,
+                    summary: summary,
+                    url: url,
+                    imageData: images.first,
+                    createdAt: dto.createdAt,
+                    engagement: engagement
                 )
             )
         }

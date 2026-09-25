@@ -35,7 +35,7 @@ struct FeedImagePostItemView: View {
         imagePost: ImagePost(
             id: "id123",
             author: Author(id: "avatar123", name: "Test User", avatarURL: URL(string: "https://test.url")!),
-            imageData: ImageData(url: URL(string: "https://test.url")!, width: 600, height: 600),
+            imageData: ImageData(id: "abc123", url: URL(string: "https://test.url")!, width: 600, height: 600),
             createdAt: Date(timeIntervalSince1970: 1_700_000_000)
         )
     )

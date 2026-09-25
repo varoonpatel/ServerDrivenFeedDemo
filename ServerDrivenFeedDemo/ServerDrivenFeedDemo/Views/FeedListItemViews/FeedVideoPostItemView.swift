@@ -44,7 +44,7 @@ struct FeedVideoPostItemView: View {
         videoPost: VideoPost(
             id: "id123",
             author: Author(id: "avatar123", name: "Test User", avatarURL: URL(string: "https://test.url")!),
-            videoData: VideoData(thumbnailURL: URL(string: "https://test.url")!, streamURL: URL(string: "https://test.url")!),
+            videoData: VideoData(id: "abc123", thumbnailURL: URL(string: "https://test.url")!, streamURL: URL(string: "https://test.url")!),
             createdAt: Date(timeIntervalSince1970: 1_700_000_000)
         )
     )

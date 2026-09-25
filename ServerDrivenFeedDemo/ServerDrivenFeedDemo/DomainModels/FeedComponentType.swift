@@ -10,6 +10,7 @@ enum FeedComponentType {
     case imagePost
     case videoPost
     case multiImagePost
+    case newsPost
 }
 
 extension FeedItem {
@@ -23,6 +24,8 @@ extension FeedItem {
             return .videoPost
         case .multiImagePost:
             return .multiImagePost
+        case .newsPost:
+            return .newsPost
         }
     }
 }

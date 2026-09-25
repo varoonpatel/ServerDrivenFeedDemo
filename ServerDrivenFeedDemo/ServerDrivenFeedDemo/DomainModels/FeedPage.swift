@@ -7,7 +7,6 @@
 
 struct FeedPage {
     let items: [FeedItem]
-    let nextCursor: String
+    let nextCursor: String?
     let hasMore: Bool
 }
-

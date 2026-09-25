@@ -45,9 +45,9 @@ struct FeedMultiImagePostItemView: View {
             id: "id123",
             author: Author(id: "avatar123", name: "Test User", avatarURL: URL(string: "https://test.url")!),
             images: [
-                ImageData(url: URL(string: "https://test.url")!, width: 600, height: 600),
-                ImageData(url: URL(string: "https://test2.url")!, width: 600, height: 600),
-                ImageData(url: URL(string: "https://test3.url")!, width: 600, height: 600)
+                ImageData(id: "abc123", url: URL(string: "https://test.url")!, width: 600, height: 600),
+                ImageData(id: "abc124", url: URL(string: "https://test2.url")!, width: 600, height: 600),
+                ImageData(id: "abc125",url: URL(string: "https://test3.url")!, width: 600, height: 600)
             ],
             createdAt: Date(timeIntervalSince1970: 1_700_000_000)
         )
