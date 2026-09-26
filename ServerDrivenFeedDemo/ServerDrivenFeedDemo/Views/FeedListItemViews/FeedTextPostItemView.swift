@@ -12,9 +12,9 @@ struct FeedTextPostItemView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            FeedPostHeaderView(feedPostItem: textPost)
-            
-            Text(textPost.content)
+            FeedPostContainerView(feedPostItem: textPost) {
+                Text(textPost.content)
+            }
         }
     }
 }
@@ -25,7 +25,8 @@ struct FeedTextPostItemView: View {
             id: "abc123",
             author: Author(id: "avatar123", name: "Test User", avatarURL: URL(string: "https://test.url")!),
             content: "This is test post",
-            createdAt: Date(timeIntervalSince1970: 1_700_000_000)
+            createdAt: Date(timeIntervalSince1970: 1_700_000_000),
+            engagement: Engagement(likes: 10, comments: 200)
         )
     )
 }

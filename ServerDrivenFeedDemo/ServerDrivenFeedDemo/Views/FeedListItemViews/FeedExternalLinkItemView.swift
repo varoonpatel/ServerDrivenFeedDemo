@@ -12,32 +12,32 @@ struct FeedExternalLinkItemView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            FeedPostHeaderView(feedPostItem: externalLinkPost)
-                .padding(.horizontal, 8)
-            
-            AsyncImage(url: externalLinkPost.imageData.url) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .aspectRatio(contentMode: .fit)
-            } placeholder: {
-                Image(systemName: "photo")
-                    .resizable()
-                    .scaledToFit()
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundStyle(Color.gray.tertiary)
-            }
-            .overlay(alignment: .bottom) {
-                Text(externalLinkPost.text)
-                    .fontWeight(.semibold)
-                    .lineLimit(3)
-                    .foregroundStyle(Color.white)
-                    .shadow(color: .black.opacity(0.5), radius: 3, x: 0, y: 2)
-                    .padding(8)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background {
-                        LinearGradient(gradient: Gradient(colors: [.black.opacity(0.1), .black.opacity(0.4), .black.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
-                    }
+            FeedPostContainerView(feedPostItem: externalLinkPost) {
+                AsyncImage(url: externalLinkPost.imageData.url) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(8)
+                } placeholder: {
+                    Image(systemName: "photo")
+                        .resizable()
+                        .scaledToFit()
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundStyle(Color.gray.tertiary)
+                }
+                .overlay(alignment: .bottom) {
+                    Text(externalLinkPost.text)
+                        .fontWeight(.semibold)
+                        .lineLimit(3)
+                        .foregroundStyle(Color.white)
+                        .shadow(color: .black.opacity(0.5), radius: 3, x: 0, y: 2)
+                        .padding(8)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background {
+                            LinearGradient(gradient: Gradient(colors: [.black.opacity(0.1), .black.opacity(0.4), .black.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
+                        }
+                }
             }
         }
     }
@@ -62,7 +62,7 @@ struct FeedExternalLinkItemView: View {
                 height: 675
             ),
             createdAt: Date(),
-            engagement: Engagement(likes: 202, comments: 20, shares: 10)
+            engagement: Engagement(likes: 202, comments: 20)
         )
     )
 }

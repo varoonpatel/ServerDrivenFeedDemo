@@ -16,11 +16,8 @@ protocol FeedPostItem: Identifiable {
 struct Engagement {
     let likes: Int
     let comments: Int
-    let shares: Int
-    
     var showLikesCount: Bool { likes > 0 }
     var showCommentsCount: Bool { comments > 0 }
-    var showSharesCount: Bool { shares > 0 }
 }
 
 // MARK: TextPost
@@ -29,7 +26,7 @@ struct TextPost: FeedPostItem {
     let author: Author
     let content: String
     let createdAt: Date
-    var engagement = Engagement(likes: 0, comments: 0, shares: 0)
+    let engagement: Engagement
 }
 
 // MARK: Author
@@ -46,7 +43,7 @@ struct ImagePost: FeedPostItem {
     let author: Author
     let imageData: ImageData
     let createdAt: Date
-    var engagement = Engagement(likes: 0, comments: 0, shares: 0)
+    let engagement: Engagement
 }
 
 // MARK: ImageData
@@ -63,7 +60,7 @@ struct VideoPost: FeedPostItem {
     let author: Author
     let videoData: VideoData
     let createdAt: Date
-    var engagement = Engagement(likes: 0, comments: 0, shares: 0)
+    let engagement: Engagement
 }
 
 struct VideoData {
@@ -81,7 +78,7 @@ struct MultiImagePost: FeedPostItem {
     let author: Author
     let images: [ImageData]
     let createdAt: Date
-    var engagement = Engagement(likes: 0, comments: 0, shares: 0)
+    let engagement: Engagement
 }
 
 // MARK: ExternalLinkPost

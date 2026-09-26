@@ -12,29 +12,30 @@ struct FeedMultiImagePostItemView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            FeedPostHeaderView(feedPostItem: multiImagePost)
-         
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 20) {
-                    ForEach(multiImagePost.images, id: \.self) { image in
-                        AsyncImage(url: image.url) { image in
-                            image
-                                .resizable()
-                                .scaledToFill()
-                                .aspectRatio(contentMode: .fit)
-                        } placeholder: {
-                            Image(systemName: "photo")
-                                .resizable()
-                                .scaledToFit()
-                                .aspectRatio(contentMode: .fit)
-                                .foregroundStyle(Color.gray.tertiary)
+            FeedPostContainerView(feedPostItem: multiImagePost) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(spacing: 20) {
+                        ForEach(multiImagePost.images, id: \.self) { image in
+                            AsyncImage(url: image.url) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .aspectRatio(contentMode: .fit)
+                                    .cornerRadius(8)
+                            } placeholder: {
+                                Image(systemName: "photo")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .aspectRatio(contentMode: .fit)
+                                    .foregroundStyle(Color.gray.tertiary)
+                            }
+                            .frame(width: 280)
                         }
-                        .frame(width: 280)
                     }
+                    .scrollTargetLayout()
                 }
-                .scrollTargetLayout()
+                .scrollTargetBehavior(.viewAligned)
             }
-            .scrollTargetBehavior(.viewAligned)
         }
     }
 }
@@ -49,7 +50,8 @@ struct FeedMultiImagePostItemView: View {
                 ImageData(id: "abc124", url: URL(string: "https://test2.url")!, width: 600, height: 600),
                 ImageData(id: "abc125",url: URL(string: "https://test3.url")!, width: 600, height: 600)
             ],
-            createdAt: Date(timeIntervalSince1970: 1_700_000_000)
+            createdAt: Date(timeIntervalSince1970: 1_700_000_000),
+            engagement: Engagement(likes: 10, comments: 200)
         )
     )
 }

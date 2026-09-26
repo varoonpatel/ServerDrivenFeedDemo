@@ -33,10 +33,9 @@ struct AuthorDTO: Decodable {
 struct EngagementDTO: Decodable {
     let likes: Int
     let comments: Int
-    let shares: Int
 
     func toDomain() -> Engagement {
-        Engagement(likes: likes, comments: comments, shares: shares)
+        Engagement(likes: likes, comments: comments)
     }
 }
 

@@ -12,31 +12,32 @@ struct FeedVideoPostItemView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            FeedPostHeaderView(feedPostItem: videoPost)
-            
-            AsyncImage(url: videoPost.videoData.thumbnailURL) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .aspectRatio(contentMode: .fit)
-            } placeholder: {
-                Image(systemName: "video")
-                    .resizable()
-                    .scaledToFit()
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundStyle(Color.gray.tertiary)
-            }
-            .overlay {
-                Button {
-                    
-                } label: {
-                    Image(systemName: "play.circle.fill")
+            FeedPostContainerView(feedPostItem: videoPost) {
+                
+                AsyncImage(url: videoPost.videoData.thumbnailURL) { image in
+                    image
                         .resizable()
-                        .foregroundStyle(Color.gray)
-                        .frame(width: 50, height: 50)
+                        .scaledToFit()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(8)
+                } placeholder: {
+                    Image(systemName: "video")
+                        .resizable()
+                        .scaledToFit()
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundStyle(Color.gray.tertiary)
                 }
-                .buttonStyle(BorderlessButtonStyle())
-
+                .overlay {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "play.circle.fill")
+                            .resizable()
+                            .foregroundStyle(Color.white.gradient)
+                            .frame(width: 50, height: 50)
+                    }
+                    .buttonStyle(BorderlessButtonStyle())       
+                }
             }
         }
     }
@@ -48,7 +49,8 @@ struct FeedVideoPostItemView: View {
             id: "id123",
             author: Author(id: "avatar123", name: "Test User", avatarURL: URL(string: "https://test.url")!),
             videoData: VideoData(id: "abc123", thumbnailURL: URL(string: "https://test.url")!, streamURL: URL(string: "https://test.url")!),
-            createdAt: Date(timeIntervalSince1970: 1_700_000_000)
+            createdAt: Date(timeIntervalSince1970: 1_700_000_000),
+            engagement: Engagement(likes: 10, comments: 200)
         )
     )
 }
