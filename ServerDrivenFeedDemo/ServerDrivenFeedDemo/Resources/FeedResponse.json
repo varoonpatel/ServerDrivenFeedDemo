@@ -128,7 +128,7 @@
     },
     {
       "id": "post_1005",
-      "type": "news",
+      "type": "external_link",
       "createdAt": "2026-09-25T10:52:00Z",
       "author": {
         "id": "source_301",
@@ -137,8 +137,7 @@
         "avatarURL": "https://i.pravatar.cc/150?img=45"
       },
       "content": {
-        "headline": "Teams prepare for another busy weekend as the season enters a crucial stretch.",
-        "summary": "Several teams are making final preparations ahead of a weekend packed with important matchups.",
+        "text": "Teams prepare for another busy weekend as the season enters a crucial stretch.",
         "url": "https://www.espn.com/nfl/story/_/id/50014420/week-3-picks-predictions-schedule-fantasy-odds-2026"
       },
       "media": [
@@ -247,7 +246,7 @@
     },
     {
       "id": "post_1009",
-      "type": "news",
+      "type": "external_link",
       "createdAt": "2026-09-25T08:05:00Z",
       "author": {
         "id": "source_302",
@@ -256,8 +255,7 @@
         "avatarURL": "https://i.pravatar.cc/150?img=59"
       },
       "content": {
-        "headline": "Five things to watch before tonight's biggest matchup",
-        "summary": "From recent form to key player battles, here are the storylines worth following.",
+        "text": "Five things to watch before tonight's biggest matchup",
         "url": "https://www.espn.com/nhl/story/_/id/50022825/nhl-2026-27-preview-guide-top-teams-players-storylines-trades-contracts-lapsed-fan"
       },
       "media": [
@@ -410,7 +408,7 @@
     },
     {
       "id": "post_1014",
-      "type": "news",
+      "type": "external_link",
       "createdAt": "2026-09-25T05:01:00Z",
       "author": {
         "id": "source_303",
@@ -419,8 +417,7 @@
         "avatarURL": "https://i.pravatar.cc/150?img=56"
       },
       "content": {
-        "headline": "The changing role of analytics in modern sports",
-        "summary": "Teams are increasingly using data to influence everything from player development to in-game decisions.",
+        "text": "The changing role of analytics in modern sports",
         "url": "https://www.espn.com/mlb/story/_/id/50015050/mlb-2026-regular-season-final-weekend-guide-watch-playoffs-october"
       },
       "media": [
@@ -559,7 +556,7 @@
     },
     {
       "id": "post_1019",
-      "type": "news",
+      "type": "external_link",
       "createdAt": "2026-09-25T01:48:00Z",
       "author": {
         "id": "source_304",
@@ -568,8 +565,7 @@
         "avatarURL": "https://i.pravatar.cc/150?img=49"
       },
       "content": {
-        "headline": "How young players are changing the way teams build for the future",
-        "summary": "A new generation of players is forcing teams to rethink development, scouting and roster construction.",
+        "text": "How young players are changing the way teams build for the future",
         "url": "https://www.espn.com/fantasy/football/story/_/id/49997261/fantasy-football-start-sit-sleepers-busts-week-3"
       },
       "media": [

@@ -16,7 +16,7 @@ enum FeedType: String, Decodable {
     case image
     case multipleImages
     case video
-    case news
+    case externalLink = "external_link"
 }
 
 struct AuthorDTO: Decodable {

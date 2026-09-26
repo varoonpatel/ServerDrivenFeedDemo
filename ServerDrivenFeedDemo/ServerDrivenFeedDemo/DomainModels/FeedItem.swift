@@ -11,7 +11,7 @@ enum FeedItem: Identifiable {
     case imagePost(ImagePost)
     case videoPost(VideoPost)
     case multiImagePost(MultiImagePost)
-    case newsPost(NewsPost)
+    case externalLinkPost(ExternalLinkPost)
     
     var id: String {
         switch self {
@@ -19,7 +19,7 @@ enum FeedItem: Identifiable {
         case .imagePost(let post): return post.id
         case .videoPost(let post): return post.id
         case .multiImagePost(let post): return post.id
-        case .newsPost(let post): return post.id
+        case .externalLinkPost(let post): return post.id
         }
     }
 }

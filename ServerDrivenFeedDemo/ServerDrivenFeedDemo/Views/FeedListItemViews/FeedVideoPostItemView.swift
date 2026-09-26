@@ -16,6 +16,9 @@ struct FeedVideoPostItemView: View {
             
             AsyncImage(url: videoPost.videoData.thumbnailURL) { image in
                 image
+                    .resizable()
+                    .scaledToFit()
+                    .aspectRatio(contentMode: .fit)
             } placeholder: {
                 Image(systemName: "video")
                     .resizable()

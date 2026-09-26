@@ -20,7 +20,7 @@ struct FeedMultiImagePostItemView: View {
                         AsyncImage(url: image.url) { image in
                             image
                                 .resizable()
-                                .scaledToFit()
+                                .scaledToFill()
                                 .aspectRatio(contentMode: .fit)
                         } placeholder: {
                             Image(systemName: "photo")

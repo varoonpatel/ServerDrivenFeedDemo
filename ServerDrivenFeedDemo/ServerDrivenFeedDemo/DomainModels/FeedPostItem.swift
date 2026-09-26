@@ -84,14 +84,13 @@ struct MultiImagePost: FeedPostItem {
     var engagement = Engagement(likes: 0, comments: 0, shares: 0)
 }
 
-// MARK: NewsPost
-struct NewsPost: FeedPostItem {
+// MARK: ExternalLinkPost
+struct ExternalLinkPost: FeedPostItem {
     let id: String
     let author: Author
-    let headline: String
-    let summary: String
+    let text: String
     let url: URL
-    let imageData: ImageData?
+    let imageData: ImageData
     let createdAt: Date
     let engagement: Engagement
 }

@@ -33,6 +33,11 @@ struct ServerDrivenFeedDemoApp: App {
             type: .multiImagePost,
             renderer: MultiImagePostItemRenderer()
         )
+        
+        feedComponentRegistery.register(
+            type: .externalLinkPost,
+            renderer: ExternalLinkItemRenderer()
+        )
     }
     
     var body: some Scene {

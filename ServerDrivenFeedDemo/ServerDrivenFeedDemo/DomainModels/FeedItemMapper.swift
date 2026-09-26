@@ -50,16 +50,19 @@ enum FeedItemMapper {
                     engagement: engagement
                 )
             )
-        case .news:
-            guard let headline = dto.content.headline, let summary = dto.content.summary, let url = dto.content.url else { return nil }
-            return .newsPost(
-                NewsPost(
+        case .externalLink:
+            guard let text = dto.content.text,
+                  let url = dto.content.url,
+                  let imageData = images.first else {
+                return nil
+            }
+            return .externalLinkPost(
+                ExternalLinkPost(
                     id: dto.id,
                     author: dto.author.toDomain(),
-                    headline: headline,
-                    summary: summary,
+                    text: text,
                     url: url,
-                    imageData: images.first,
+                    imageData: imageData,
                     createdAt: dto.createdAt,
                     engagement: engagement
                 )
