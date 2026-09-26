@@ -3,4 +3,4 @@ Server-Driven UI architecture using a registry-based component resolver to decou
 
 ![Flow Diagram](https://github.com/varoonpatel/ServerDrivenFeedDemo/blob/main/ServerDrivenFeedDemo/FlowDiagram.png)
 
-![Demo Video](https://github.com/varoonpatel/ServerDrivenFeedDemo/blob/main/ServerDrivenFeedDemo/Demo.mov)
+![Demo Video](https://github.com/varoonpatel/ServerDrivenFeedDemo/blob/main/ServerDrivenFeedDemo/Demo.mp4)
