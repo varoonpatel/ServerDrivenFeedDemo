@@ -18,9 +18,18 @@ struct FeedView: View {
     
     var body: some View {
         List {
-            ForEach(viewModel.feedItems) { item in
-                VStack {
-                    feedComponentRegistery.render(for: item.componentType)?.render(item: item)
+            ForEach(viewModel.feedRows) { row in
+                switch row {
+                case .item(let item):
+                    VStack {
+                        feedComponentRegistery.render(for: item.componentType)?.render(item: item)
+                    }
+                case .mediumRectangleAd:
+                    FeedAdView()
+                        .frame(width: 300, height: 250)
+                        .frame(maxWidth: .infinity)
+                        .listRowInsets(EdgeInsets())
+                        .listRowSeparator(.hidden)
                 }
             }
         }
@@ -35,7 +44,8 @@ struct FeedView: View {
 #Preview {
     FeedView(
         viewModel: FeedViewModel(
-            feedRepository: DefaultFeedItemRepository(feedLoader: LocalFeedLoader())
+            feedRepository: DefaultFeedItemRepository(feedLoader: LocalFeedLoader()),
+            feedAdManager: FeedAdManager(adStrategy: DefaultFeedAdStrategy())
         ),
         feedComponentRegistery: FeedComponentRegistry()
     )

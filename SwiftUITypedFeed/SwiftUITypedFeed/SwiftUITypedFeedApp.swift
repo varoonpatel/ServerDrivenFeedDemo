@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 @main
 struct SwiftUITypedFeedApp: App {
     private let feedComponentRegistery: FeedComponentRegistry
     
     init () {
+        MobileAds.shared.start()
+        
         feedComponentRegistery = FeedComponentRegistry()
         
         feedComponentRegistery.register(
@@ -44,7 +47,8 @@ struct SwiftUITypedFeedApp: App {
         WindowGroup {
             FeedView(
                 viewModel: FeedViewModel(
-                    feedRepository: DefaultFeedItemRepository(feedLoader: LocalFeedLoader())
+                    feedRepository: DefaultFeedItemRepository(feedLoader: LocalFeedLoader()),
+                    feedAdManager: FeedAdManager(adStrategy: DefaultFeedAdStrategy())
                 ),
                 feedComponentRegistery: feedComponentRegistery
             )
